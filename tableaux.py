@@ -1,4 +1,4 @@
-#-*-coding: utf-8-*-
+Tree('p',None,None),Tree('q',None,None),Tree('-',None,Tree('p',None,None))]#-*-coding: utf-8-*-
 from random import choice
 ##############################################################################
 # Variables globales
@@ -98,19 +98,22 @@ def imprime_listaHojas(L):
 		print(imprime_hoja(h))
 
 def complemento(l):
-	# Esta función devuelve el complemento de un literal
-	# Input: l, un literal
-	# Output: x, un literal
+	if(l.right==None):
+        return (Inorder(Tree('-',None,l)))
+    elif(l.label=='-'):
+        return (Inorder(l.right))	
 
-	pass
-
-def par_complementario(l):
-	# Esta función determina si una lista de solo literales
-	# contiene un par complementario
-	# Input: l, una lista de literales
-	# Output: True/False
-
-	pass
+def par_complementario(h):
+	h_nuevo=[]
+    for i in h:
+        h_nuevo.append(Inorder(i))
+        
+    for i in h:
+        a= complemento(i)
+        if a in h_nuevo:
+            return True
+            break
+    return False
 
 def es_literal(f):
 	# Esta función determina si el árbol f es un literal
