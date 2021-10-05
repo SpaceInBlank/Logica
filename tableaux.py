@@ -119,8 +119,18 @@ def es_literal(f):
 	# Esta función determina si el árbol f es un literal
 	# Input: f, una fórmula como árbol
 	# Output: True/False
-
-	pass
+	if f.label=="-":
+		a=f.right
+		if a.label=="-" or a.label in conectivos:
+			return False
+		else:
+			return False
+	else:
+		if f.label not in conectivos:
+			return True
+		else:
+			return False
+	
 
 def no_literales(l):
 	# Esta función determina si una lista de fórmulas contiene
@@ -128,7 +138,9 @@ def no_literales(l):
 	# Input: l, una lista de fórmulas como árboles
 	# Output: None/f, tal que f no es literal
 
-	pass
+	for i in l:
+		if !es_literal(l[i]):
+			return l[i]
 
 def clasificacion(f):
 	# clasifica una fórmula como alfa o beta
