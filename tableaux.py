@@ -139,8 +139,9 @@ def no_literales(l):
 	# Output: None/f, tal que f no es literal
 
 	for i in l:
-		if !es_literal(l[i]):
-			return l[i]
+		if not es_literal(i):
+		    return i
+   	return None
 
 def clasificacion(f):
 	# clasifica una fórmula como alfa o beta
