@@ -147,7 +147,15 @@ def clasificacion(f):
 	# Input: f, una fórmula como árbol
 	# Output: string de la clasificación de la formula
 
-	pass
+	if(f.label=='-'):
+        	if(f.right=='-'):
+            		return 'Alfa1'
+        	elif(f.right=='>'):
+            		return 'Alfa2'
+    	elif(f.label=='='):
+        	return 'Alfa3'
+    	elif(f.label=='Y'):
+        	return 'Alfa4'
 
 def clasifica_y_extiende(f, h):
 	# Extiende listaHojas de acuerdo a la regla respectiva
